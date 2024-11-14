@@ -20,4 +20,4 @@ Google Gemini powers all content for each profile, providing summaries of each i
 `npm run start`
 
 ## Video Demo
-[![Watch the demo video](http://img.youtube.com/vi/fAtWd7KVOUE/0.jpg)](https://youtu.be/fAtWd7KVOUE)
+[Watch the demo video](https://youtu.be/z-jVDoI0wpI)

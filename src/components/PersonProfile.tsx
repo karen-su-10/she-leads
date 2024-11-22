@@ -21,7 +21,7 @@ const PersonProfile: React.FC = () => {
 
         const fetchData = async () => {
             try {
-                const result = await getGeminiData(company, name, title);
+                const result = await getGeminiData(company, name, title, '');
                 console.log('Data received:', result);
                 const cleanedResult = result.replace(/```json/g, '').replace(/```/g, ''); // Remove backticks and json tag
                 console.log('Cleaned data:', cleanedResult);
@@ -82,14 +82,32 @@ const PersonProfile: React.FC = () => {
                 <Col>
                     <h2><strong>Company Info</strong></h2>
                     <hr />
-                    <ReactMarkdown>{data.company}</ReactMarkdown>
+                    {typeof data.company === 'string' ? (
+                        <ReactMarkdown>{data.company}</ReactMarkdown>
+                    ) : (
+                        Object.keys(data.company).map((key) => (
+                            <div key={key}>
+                                <h3>{key.replace(/_/g, ' ')}</h3>
+                                <ReactMarkdown>{String(data.company[key])}</ReactMarkdown>
+                            </div>
+                        ))
+                    )}
                 </Col>
             </Row>
             <Row className="mb-4">
                 <Col>
                     <h2><strong>Career Journey</strong></h2>
                     <hr />
-                    <ReactMarkdown>{data.career_path}</ReactMarkdown>
+                    {typeof data.career_path === 'string' ? (
+                        <ReactMarkdown>{data.career_path}</ReactMarkdown>
+                    ) : (
+                        Object.keys(data.career_path).map((key) => (
+                            <div key={key}>
+                                <h3>{key.replace(/_/g, ' ')}</h3>
+                                <ReactMarkdown>{String(data.career_path[key])}</ReactMarkdown>
+                            </div>
+                        ))
+                    )}
                 </Col>
             </Row>
             <Row className="mb-4">

@@ -5,6 +5,7 @@ import IndustryList from './components/IndustryList';
 import PersonProfile from './components/PersonProfile';
 
 const Home: React.FC = () => {
+
     return (
         <Router>
             <Routes>
